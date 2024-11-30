@@ -21,15 +21,8 @@ in {
   home.homeDirectory = homeDir;
 
   imports = importPaths;
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  home.stateVersion = "24.11"; 
   nixGL.packages = inputs.nixgl.packages;
 
   home.packages = (with pkgs; [
@@ -43,7 +36,7 @@ in {
       firefox
   ]);
 
-  targets.genericLinux.enable = true;
+  targets.genericLinux.enable = true; # non-nixos support.
 
   programs.alacritty = {
   	enable = true;
@@ -58,9 +51,8 @@ in {
   home = {
   	shellAliases = {
   	      vi = "nvim";
-		  docker = "sudo docker";
-		  nsw = "sudo nixos-rebuild switch --flake ${homeDir}/${cfgDirname}";
-		  hsw = "home-manager switch --flake ${homeDir}/${cfgDirname}";
+		  docker = "sudo -E docker";
+		  hsw = "home-manager switch --flake ${homeDir}/${cfgDirname} --impure";
   	};
 
   	sessionVariables = {
@@ -76,8 +68,7 @@ in {
 			extraConfigEarly = "bspc monitor -d 1 2 3 4 5 6 7 8 9";
 			extraConfig = ''
 				polybar-msg cmd quit
-				polybar 
-				alacritty
+				polybar && disown
 			'';
 			settings = {
 				border_width = 2;
@@ -92,12 +83,6 @@ in {
 		name = "Phpstorm";
 		genericName = "IDE";
 		exec = "${homeDir}/phpstorm-flake/result/bin/phpstorm";
-		terminal = false;
-	};
-
-	nekoray = {
-		name = "Nekoray";
-		exec = "sh -c \"sudo -E nekoray\"";
 		terminal = false;
 	};
   };
