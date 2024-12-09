@@ -7,4 +7,4 @@ set +e
 mkdir -p $HOME/.config/nix
 set -e
 
-ln -s ./source/nix.conf $HOME/.config/nix/
+ln -s $(realpath ./source/nix.conf) $HOME/.config/nix/

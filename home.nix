@@ -29,11 +29,8 @@ in {
       htop
       (nerdfonts.override { fonts = ["JetBrainsMono"]; })
       neovim
-      go
-      python3
-  ]) ++ builtins.map (app: gui app) (with pkgs; [ # gui apps here.
-      telegram-desktop
-      firefox
+	  go
+	  python3
   ]);
 
   targets.genericLinux.enable = true; # non-nixos support.
@@ -78,13 +75,15 @@ in {
   };
 
   # place phpstorm flake and build it in /home/tyasheliy/phpstorm-flake.
-  xdg.desktopEntries = {
-  	phpstorm = {
-		name = "Phpstorm";
-		genericName = "IDE";
-		exec = "${homeDir}/phpstorm-flake/result/bin/phpstorm";
-		terminal = false;
-	};
+  xdg = {
+	  desktopEntries = {
+		phpstorm = {
+			name = "Phpstorm";
+			genericName = "IDE";
+			exec = "${homeDir}/phpstorm-flake/result/bin/phpstorm";
+			terminal = false;
+		};
+	  };
   };
 
   services.sxhkd = {
