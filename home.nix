@@ -31,6 +31,7 @@ in {
       neovim
 	  go
 	  python3
+	  firefox
   ]);
 
   targets.genericLinux.enable = true; # non-nixos support.

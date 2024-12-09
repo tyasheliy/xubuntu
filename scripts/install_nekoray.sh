@@ -9,7 +9,8 @@ sudo apt install build-essential \
                  libqt5network5 \
                  libqt5widgets5 \
                  libqt5x11extras5 \
-                 libqt5gui5
+                 libqt5gui5 \
+				 unzip
 
 wget -qO- https://raw.githubusercontent.com/ohmydevops/nekoray-installer/main/installer.sh | bash
 
