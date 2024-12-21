@@ -1,28 +1,24 @@
 { 
 	config, 
+	userConfig,
 	pkgs,
 	inputs, 
 	system, 
 	... 
 }: 
 let
-	gui = config.lib.nixGL.wrap;
-
 	neovim = (inputs.neovim-flake.packages.${system}.default);
-
-	homeDir = "/home/tyasheliy";
-	cfgDirname = "os";
 
 	importEntries = builtins.readDir ./home;
 	importDirs = builtins.attrNames importEntries;
 	importPaths = builtins.map (dir: ./home + "/${dir}") importDirs;
 in {
-  home.username = "tyasheliy";
-  home.homeDirectory = homeDir;
+  home.username = userConfig.username;
+  home.homeDirectory = userConfig.homeDir;
 
   imports = importPaths;
 
-  home.stateVersion = "24.11"; 
+  home.stateVersion = userConfig.stateVersion; 
   nixGL.packages = inputs.nixgl.packages;
 
   home.packages = (with pkgs; [
@@ -30,50 +26,15 @@ in {
       (nerdfonts.override { fonts = ["JetBrainsMono"]; })
       neovim
 	  go
-	  python3
 	  firefox
+	  lazydocker
+	  lazygit
   ]);
 
   targets.genericLinux.enable = true; # non-nixos support.
 
-  programs.alacritty = {
-  	enable = true;
-	package = gui pkgs.alacritty;
-  };
+  xsession.enable = true;
 
-  programs.zsh = {
-	enable = true;
-	profileExtra = "startx";
-  };
-
-  home = {
-  	shellAliases = {
-  	      vi = "nvim";
-		  docker = "sudo -E docker";
-		  hsw = "home-manager switch --flake ${homeDir}/${cfgDirname} --impure";
-  	};
-
-  	sessionVariables = {
-  	   EDITOR = "nvim";
-  	};
-  };
-
-  xsession = {
-	enable = true;
-	windowManager = {
-		bspwm = {
-			enable = true;
-			extraConfigEarly = "bspc monitor -d 1 2 3 4 5 6 7 8 9";
-			extraConfig = ''
-				polybar-msg cmd quit
-				polybar && disown
-			'';
-			settings = {
-				border_width = 2;
-			};
-		};
-	};
-  };
 
   # place phpstorm flake and build it in /home/tyasheliy/phpstorm-flake.
   xdg = {
@@ -81,7 +42,7 @@ in {
 		phpstorm = {
 			name = "Phpstorm";
 			genericName = "IDE";
-			exec = "${homeDir}/phpstorm-flake/result/bin/phpstorm";
+			exec = "${userConfig.homeDir}/phpstorm-flake/result/bin/phpstorm";
 			terminal = false;
 		};
 	  };
@@ -103,55 +64,8 @@ in {
 	};
   };
 
-  services.polybar = {
-	enable = true;
-	script = "polybar top &";
-	settings = {
-		"bar/top" = {
-			modules-left = "tray";
-			modules-right = "cpu bspwm time battery";
-			module-margin = 2;
-			font = ["JetBrainsMono Nerd Font Propo:size=13;1"];
-		};
-
-		"module/cpu" = {
-			type = "internal/cpu";
-			label = "CPU %percentage%%";
-			interval = 1;
-		};
-
-		"module/bspwm" = {
-			type = "internal/bspwm";
-			label-focused-background = "#606060";
-		};
-
-		"module/battery" = {
-			type = "internal/battery";
-			battery = "BAT0";
-			poll-interval = 5;
-		};
-
-		"module/tray" = {
-			type = "internal/tray";
-			tray-size = "126%";
-		};
-
-		"module/time" = {
-			type = "internal/date";
-			interval = "1.0";
-			time = "%H:%M";
-			date = "%Y-%m-%d";
-			label = "%time%";
-		};
-	};
-  };
-
   programs.rofi = {
 		enable = true;
-  };
-
-  home.file = {
-	".xinitrc".text = "sxhkd & exec bspwm";
   };
 
   programs.gpg.enable = true;

@@ -15,7 +15,8 @@
 
   outputs = inputs@{ nixpkgs, home-manager, nixgl, ... }:
 	let
-        	system = "x86_64-linux";
+		userConfig = import ./config.nix;
+        system = userConfig.system;
 	in {
 		homeConfigurations.tyasheliy = home-manager.lib.homeManagerConfiguration {
 			pkgs = nixpkgs.legacyPackages.${system};
@@ -27,6 +28,7 @@
 			extraSpecialArgs = { 
 				inherit inputs; 
 				inherit system;
+				inherit userConfig;
 			};
 		};
 	};
