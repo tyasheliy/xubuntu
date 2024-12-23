@@ -95,6 +95,9 @@ in {
 		push = {
 			autoSetupRemote = true;
 		};
+		core = {
+			fileMode = false;
+		};
 	};
   };
 

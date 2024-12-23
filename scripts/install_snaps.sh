@@ -9,3 +9,4 @@ function i {
 
 i telegram-desktop
 i appflowy
+i postman

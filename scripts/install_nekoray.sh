@@ -23,4 +23,5 @@ set -e
 
 ln -s $cfgDir $HOME/NekoRay/nekoray/config
 
-sudo -E $HOME/NekoRay/nekoray/nekoray
+sudo sh -c "echo 'tyasheliy ALL=(ALL:ALL) NOPASSWD: /home/tyasheliy/NekoRay/nekoray/launcher' >> /etc/sudoers"
+sudo /home/tyasheliy/NekoRay/nekoray/launcher
