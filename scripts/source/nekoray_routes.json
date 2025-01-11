@@ -6,7 +6,7 @@
                 "reddit.com",
                 "twitch.tv",
                 "nixos.wiki",
-				"vk.com",
+				        "vk.com",
                 "ttvnw.net"
             ],
             "outbound": "direct"
