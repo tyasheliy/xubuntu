@@ -42,11 +42,11 @@
         "toggleterm": "toggleterm"
       },
       "locked": {
-        "lastModified": 1734963259,
-        "narHash": "sha256-rGpPmrLnseM+0k3HfwsD6MjX7qPQosnZRcjUaOLWq68=",
+        "lastModified": 1735047959,
+        "narHash": "sha256-JkYMmIgqIKQtAUJrEiU9gu2yPkN7K9RJ/4zJl4wmBzg=",
         "owner": "tyasheliy",
         "repo": "neovim-flake",
-        "rev": "43c4878c4470c36418666126c643505ccbd4a2d9",
+        "rev": "aff43cd309d10307452bfa96eee9129a4af7ee15",
         "type": "github"
       },
       "original": {
