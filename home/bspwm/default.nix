@@ -8,9 +8,11 @@ in {
 			enable = true;
 			extraConfigEarly = ''
 			if xrandr -q | grep "${external} connected"; then
-				xrandr --output ${builtIn} --off
+		    bspc monitor ${external} -d 1 2 3 4 5 6 7 8 9
+        bspc monitor ${builtIn} -d 10
+      else
+		    bspc monitor -d 1 2 3 4 5 6 7 8 9
 			fi
-			bspc monitor -d 1 2 3 4 5 6 7 8 9
 			'';
 			settings = {
 				border_width = 2;

@@ -8,8 +8,8 @@
       fzf
       cargo
       xclip
+      gomodifytags
+      impl
     ];
   };
-
-  home.file.".config/nvim".source = ./nvim;
 }
