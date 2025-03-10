@@ -6,6 +6,7 @@
     <property name="LockCommand" type="empty"/>
     <property name="SaveOnExit" type="empty"/>
     <property name="SessionName" type="string" value="Default"/>
+    <property name="StartAssistiveTechnologies" type="bool" value="false"/>
   </property>
   <property name="sessions" type="empty">
     <property name="Failsafe" type="empty">
@@ -32,11 +33,14 @@
     <property name="LaunchGNOME" type="bool" value="false"/>
   </property>
   <property name="shutdown" type="empty">
-    <property name="LockScreen" type="empty"/>
+    <property name="LockScreen" type="bool" value="false"/>
   </property>
   <property name="startup" type="empty">
     <property name="screensaver" type="empty">
       <property name="type" type="empty"/>
     </property>
+  </property>
+  <property name="chooser" type="empty">
+    <property name="AlwaysDisplay" type="bool" value="false"/>
   </property>
 </channel>

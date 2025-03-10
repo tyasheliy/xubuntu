@@ -1,6 +1,7 @@
 { userConfig, pkgs, ... }: {
   programs.zsh = {
     enable = true;
+    package = pkgs.emptyDirectory;
     oh-my-zsh = {
       enable = true;
       theme = "eastwood";

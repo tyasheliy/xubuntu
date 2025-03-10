@@ -37,6 +37,7 @@
       <property name="symbolic-icons" type="bool" value="true"/>
       <property name="icon-size" type="int" value="0"/>
       <property name="known-items" type="array">
+        <value type="string" value="Bitrix24"/>
         <value type="string" value="blueman"/>
         <value type="string" value="nm-applet"/>
       </property>
@@ -52,7 +53,7 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="enable-mpris" type="bool" value="true"/>
       <property name="enable-wnck" type="bool" value="true"/>
-      <property name="known-players" type="string" value="firefox;org.gnome.Rhythmbox3;parole"/>
+      <property name="known-players" type="string" value="firefox;org.gnome.Rhythmbox3;parole;telegram-desktop_telegram-desktop"/>
       <property name="mixer-command" type="string" value="pavucontrol"/>
       <property name="persistent-players" type="string" value="parole;org.gnome.Rhythmbox3"/>
       <property name="show-notifications" type="bool" value="true"/>
@@ -68,7 +69,7 @@
     </property>
     <property name="plugin-2" type="string" value="pager">
       <property name="rows" type="uint" value="1"/>
-      <property name="miniature-view" type="bool" value="false"/>
+      <property name="miniature-view" type="bool" value="true"/>
       <property name="numbering" type="bool" value="false"/>
       <property name="wrap-workspaces" type="bool" value="false"/>
     </property>

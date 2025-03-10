@@ -1,6 +1,6 @@
 {
   services.sxhkd = {
-    enable = true;
+    enable = false;
     keybindings = {
       "alt + @space" = "rofi -show drun";
       "alt + Return" = "alacritty";

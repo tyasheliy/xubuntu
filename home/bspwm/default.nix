@@ -5,7 +5,7 @@ let
 in {
 	xsession.windowManager = {
 		bspwm = {
-			enable = true;
+			enable = false;
 			extraConfigEarly = ''
 			if xrandr -q | grep "${external} connected"; then
 		    bspc monitor ${external} -d 1 2 3 4 5 6 7 8 9
