@@ -21,5 +21,6 @@
     <property name="brightness-on-battery" type="uint" value="9"/>
     <property name="lid-action-on-battery" type="uint" value="0"/>
     <property name="presentation-mode" type="bool" value="true"/>
+    <property name="show-presentation-indicator" type="bool" value="false"/>
   </property>
 </channel>

@@ -8,6 +8,6 @@ function i {
 }
 
 i telegram-desktop
-i appflowy
+i ticktick
 i postman
 i dbeaver-ce
