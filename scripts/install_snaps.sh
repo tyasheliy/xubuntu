@@ -11,3 +11,4 @@ i telegram-desktop
 i ticktick
 i postman
 i dbeaver-ce
+i firefox

@@ -26,5 +26,9 @@
   	sessionVariables = {
   	   EDITOR = "nvim";
   	};
+
+    sessionPath = [
+      "${userConfig.homeDir}/.config/composer/vendor/bin"
+    ];
   };
 }

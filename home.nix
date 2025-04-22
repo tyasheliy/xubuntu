@@ -20,7 +20,6 @@ in {
     packages = with pkgs; [
       htop
       (nerdfonts.override { fonts = ["JetBrainsMono"]; })
-      firefox
       lazydocker
       lazygit
     ];
