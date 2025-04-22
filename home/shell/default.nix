@@ -7,6 +7,7 @@
       theme = "eastwood";
     };
     autosuggestion.enable = true;
+    initExtra = ''export PATH="$PATH:${userConfig.homeDir}/.config/composer/vendor/bin"'';
   };
 
   home = {
@@ -26,9 +27,5 @@
   	sessionVariables = {
   	   EDITOR = "nvim";
   	};
-
-    sessionPath = [
-      "${userConfig.homeDir}/.config/composer/vendor/bin"
-    ];
   };
 }
