@@ -22,6 +22,7 @@ in {
       (nerdfonts.override { fonts = ["JetBrainsMono"]; })
       lazydocker
       lazygit
+	  fzf
     ];
   };
 
