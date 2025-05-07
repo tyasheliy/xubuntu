@@ -1,4 +1,3 @@
-
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -7,15 +6,13 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-	nixgl.url = "github:nix-community/nixGL";
-
-    neovim-flake.url = "github:tyasheliy/neovim-flake";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixgl, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
 	let
-		userConfig = import ./config.nix;
+		userConfig = import ./config.nix {
+			lib = home-manager.lib;
+		};
         system = userConfig.system;
 	in {
 		homeConfigurations.tyasheliy = home-manager.lib.homeManagerConfiguration {

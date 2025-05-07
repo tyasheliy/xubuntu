@@ -1,6 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, userConfig, ... }: {
 	programs.alacritty = {
 		enable = true;
-    package = pkgs.emptyDirectory;
+		package = pkgs.emptyDirectory;
 	};
+
+	home.activation.installAlacritty = userConfig.systemInstall "alacritty";
 }

@@ -7,7 +7,4 @@
 ## TODO
 
 * visual studio code home-manager integration (there are home options in docs)
-* change login manager (to ly)
-* firefox snap instead of nix package
 * firefox config in the nix way
-* neovim and alacritty total black theme

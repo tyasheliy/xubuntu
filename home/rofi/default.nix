@@ -1,6 +1,6 @@
 {
   programs.rofi = {
-		enable = true;
-    theme = ./themes/squared-black.rasi;
+	enable = true;
+	theme = ./themes/squared-black.rasi;
   };
 }

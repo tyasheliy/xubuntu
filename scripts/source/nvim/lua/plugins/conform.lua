@@ -5,6 +5,7 @@ return {
 			log_level = vim.log.levels.DEBUG,
 
 			formatters_by_ft = {
+				nix = { "nixfmt" },
 				lua = { "stylua" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },

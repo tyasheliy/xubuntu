@@ -11,24 +11,28 @@ let
 	importDirs = builtins.attrNames importEntries;
 	importPaths = builtins.map (dir: ./home + "/${dir}") importDirs;
 in {
-  imports = importPaths;
+	imports = importPaths;
 
-  home = {
-    username = userConfig.username;
-    homeDirectory = userConfig.homeDir;
-    stateVersion = userConfig.stateVersion; 
-    packages = with pkgs; [
-      htop
-      (nerdfonts.override { fonts = ["JetBrainsMono"]; })
-      lazydocker
-      lazygit
-	  fzf
-    ];
-  };
+	home = {
+		username = userConfig.username;
+		homeDirectory = userConfig.homeDir;
+		stateVersion = userConfig.stateVersion; 
+		packages = with pkgs; [
+			htop
+			(nerdfonts.override { fonts = ["JetBrainsMono"]; })
+			lazydocker
+			lazygit
+			fzf
+		];
 
-  targets.genericLinux.enable = true; # non-nixos support.
+		activation = {
+			installSnaps = userConfig.rnScript "install_snaps.sh";
+		};
+	};
 
-  xsession.enable = true;
+	targets.genericLinux.enable = true; # non-nixos support.
 
-  programs.home-manager.enable = true;
+	xsession.enable = true;
+
+	programs.home-manager.enable = true;
 }
