@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eEuo pipefail
+
 if [[ "${EUID}" = 0 ]]; then
 	echo "Won't run it as root."
 	exit 1
@@ -30,13 +32,10 @@ replaceDefaultUser() {
 }
 
 installIfNotFound git
-
 git clone https://github.com/tyasheliy/xubuntu $HOME/os
 
 cfgDir=$(realpath $HOME/os)
 export SCRIPT_DIR="${cfgDir}/scripts"
-
-set -eEuo pipefail
 
 rn install_nix.sh
 replaceDefaultUser $cfgDir/flake.nix
