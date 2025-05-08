@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eEuo pipefail
 
@@ -37,7 +37,7 @@ git clone https://github.com/tyasheliy/xubuntu $HOME/os
 cfgDir=$(realpath $HOME/os)
 export SCRIPT_DIR="${cfgDir}/scripts"
 
-rn install_nix.sh
+rn setup_nix.sh
 replaceDefaultUser $cfgDir/flake.nix
 replaceDefaultUser $cfgDir/config.nix
 rn install_home-manager.sh

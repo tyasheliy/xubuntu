@@ -24,10 +24,6 @@ in {
 			lazygit
 			fzf
 		];
-
-		activation = {
-			installSnaps = userConfig.rnScript "install_snaps.sh";
-		};
 	};
 
 	targets.genericLinux.enable = true; # non-nixos support.

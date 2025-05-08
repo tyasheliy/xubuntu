@@ -1,6 +1,7 @@
-{
+{ pkgs, userConfig, ... }: {
   programs.git = {
     enable = true;
+	package = pkgs.emptyDirectory;
     userName = "tyasheliy";
     userEmail = "egorgerasimov@tuta.io";
     extraConfig = {
@@ -9,4 +10,6 @@
       };
     };
   };
+
+  home.activation.installGit = userConfig.systemInstall "git";
 }

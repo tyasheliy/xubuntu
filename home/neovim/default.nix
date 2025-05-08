@@ -4,7 +4,7 @@
     viAlias = true;
     withNodeJs = true;
     withPython3 = true;
-    extraPackages = with pkgs; [ fzf cargo xclip gomodifytags impl ];
+    extraPackages = with pkgs; [ gcc fzf cargo xclip gomodifytags impl ];
   };
 
   home.activation.makeNeovimLink = userConfig.rnScript "make_neovim_link.sh";
