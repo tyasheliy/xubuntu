@@ -15,9 +15,9 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 
 3. Install deps
 ```sh
-apt update
-apt install -y git
-apt install -y curl
+sudo apt update
+sudo apt install -y git
+sudo apt install -y curl
 ```
 
 4. Run installation script as target user
@@ -25,7 +25,12 @@ apt install -y curl
 curl -fs https://raw.githubusercontent.com/tyasheliy/xubuntu/refs/heads/master/install.sh | bash
 ```
 
-5. Reboot system and enjoy!
+5. Set zsh as default shell
+```sh
+(cd ~/os/scripts && bash set_zsh.sh)
+```
+
+6. Reboot system
 
 ## TODO
 
