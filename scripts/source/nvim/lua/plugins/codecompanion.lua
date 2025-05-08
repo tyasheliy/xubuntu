@@ -29,7 +29,7 @@ return {
 				return require("codecompanion.adapters").extend("openai_compatible", {
 					name = "ds_openrouter",
 					env = {
-						api_key = "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",
+						api_key = vim.env.OPENROUTER_API_KEY,
 						url = "https://openrouter.ai/api",
 					},
 					features = {

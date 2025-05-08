@@ -7,8 +7,12 @@
       theme = "eastwood";
     };
     autosuggestion.enable = true;
-    initExtra =
-      ''export PATH="$PATH:${userConfig.homeDir}/.config/composer/vendor/bin"'';
+    initExtra = ''
+      set -o allexport
+      source ${userConfig.homeDir}/.env || touch ${userConfig.homeDir}/.env
+      set +o allexport
+      export PATH="$PATH:${userConfig.homeDir}/.config/composer/vendor/bin"
+    '';
   };
 
   home.activation.installZsh = userConfig.systemInstall "zsh";
