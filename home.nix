@@ -24,6 +24,8 @@ in {
 			lazygit
 			fzf
 		];
+
+		activation.installOrg = userConfig.rnScript "install_org.sh";
 	};
 
 	targets.genericLinux.enable = true; # non-nixos support.
