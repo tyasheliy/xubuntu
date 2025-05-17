@@ -6,6 +6,9 @@
     plugins = with pkgs; [{
       plugin = tmuxPlugins.resurrect;
       extraConfig = ''
+		set -g default-terminal "tmux-256color"
+		set -ag terminal-overrides ",xterm-256color:RGB"
+
 		set -g @resurrect-strategy-nvim "session"
 		set -g @resurrect-strategy-vim 'session'
 
